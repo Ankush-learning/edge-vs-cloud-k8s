@@ -44,6 +44,12 @@ All live `kubectl` outputs captured during execution on **Kind `v0.33.0` (`Kuber
 | **5. Cross-Node Service Calls** | `curl -s http://edge-service; curl -s http://cloud-service` | Returned `Hello from the EDGE microservice` and `Hello from the CLOUD microservice` | [04-service-calls.txt](results/04-service-calls.txt) |
 | **6. Strict `nodeSelector` Demo** | Removed `node-type=edge` label & deleted edge Pod → restored label | Replacement Pod stayed **`Pending`** (`0/3 nodes are available: 1 node(s) had untolerated taint(s), 2 node(s) didn't match Pod's node affinity/selector`); immediately transitioned to **`Running`** on `edge-cloud-worker` once label was restored | [05-node-selector-strict-test.txt](results/05-node-selector-strict-test.txt) |
 
+### Cluster Placement Diagram
+![Edge vs Cloud Cluster Placement](graphs/01_edge_cloud_architecture.png)
+
+### Strict `nodeSelector` Lifecycle (Step 6)
+![Strict nodeSelector Lifecycle](graphs/02_nodeselector_lifecycle.png)
+
 ---
 
 ## 3. Viva Questions & Answers
